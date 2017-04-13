@@ -8,7 +8,7 @@ import lombok.SneakyThrows;
 /**
  * Created by Igor Dmitriev on 4/8/17
  */
-public class ReportHandler {
+public class CreditCardReportHandler {
 
   public static ReportDto handle(ReportDto report) {
     Stream.of(report.getClass().getDeclaredFields())
