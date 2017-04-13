@@ -10,14 +10,14 @@ import lombok.SneakyThrows;
  */
 public class CreditCardReportHandler {
 
-  public static ReportDto handle(ReportDto report) {
+  public static CreditCardReportDto handle(CreditCardReportDto report) {
     Stream.of(report.getClass().getDeclaredFields())
         .forEach(field -> handle(report, field));
     return report;
   }
 
   @SneakyThrows
-  private static void handle(ReportDto report, Field field) {
+  private static void handle(CreditCardReportDto report, Field field) {
     if (!field.isAnnotationPresent(Secure.class)) {
       return;
     }

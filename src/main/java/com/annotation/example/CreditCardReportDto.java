@@ -1,12 +1,16 @@
 package com.annotation.example;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Created by Igor Dmitriev on 4/13/17
  */
-@Data
-public class ReportDto {
+@Getter
+@Setter
+@ToString
+public class CreditCardReportDto {
   @Secure
   private String cardNumber;
   @Secure

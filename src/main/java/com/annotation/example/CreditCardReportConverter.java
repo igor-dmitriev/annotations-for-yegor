@@ -1,17 +1,15 @@
 package com.annotation.example;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 /**
  * Created by Igor Dmitriev on 4/13/17
  */
 public class CreditCardReportConverter {
 
-  public static ReportDto toDto(CreditCardReport report) {
-    ReportDto dto = new ReportDto();
+  public static CreditCardReportDto toDto(CreditCardReport report) {
+    CreditCardReportDto dto = new CreditCardReportDto();
     dto.setCardNumber(report.getCardNumber());
     dto.setIncome(NumberFormat.getCurrencyInstance().format(report.getIncome()));
     dto.setOutcome(NumberFormat.getCurrencyInstance().format(report.getOutcome()));

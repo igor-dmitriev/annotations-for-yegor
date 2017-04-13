@@ -29,22 +29,22 @@ public class CreditCardReportHandlerTest {
   public void shouldHideSecureDataForBanker() {
     SecurityContext.setUser(new User("Jon Andersen", Role.BANKER));
     CreditCardReport report = createReport();
-    ReportDto reportDto = CreditCardReportHandler.handle(CreditCardReportConverter.toDto(report));
-    System.out.println(reportDto);
+    CreditCardReportDto creditCardReportDto = CreditCardReportHandler.handle(CreditCardReportConverter.toDto(report));
+    System.out.println(creditCardReportDto);
 
-    assertThat(reportDto.getCardNumber(), is("SECURE INFO"));
-    assertThat(reportDto.getBalance(), is("SECURE INFO"));
+    assertThat(creditCardReportDto.getCardNumber(), is("SECURE INFO"));
+    assertThat(creditCardReportDto.getBalance(), is("SECURE INFO"));
   }
 
   @Test
   public void shouldShowSecureDataForCreditCardHolder() {
     SecurityContext.setUser(new User("Artour Babaev", Role.CUSTOMER));
     CreditCardReport report = createReport();
-    ReportDto reportDto = CreditCardReportHandler.handle(CreditCardReportConverter.toDto(report));
-    System.out.println(reportDto);
+    CreditCardReportDto creditCardReportDto = CreditCardReportHandler.handle(CreditCardReportConverter.toDto(report));
+    System.out.println(creditCardReportDto);
 
-    assertThat(reportDto.getCardNumber(), is("4183 3256 4324 2224"));
-    assertThat(reportDto.getBalance(), is("UAH1,000,000.00"));
+    assertThat(creditCardReportDto.getCardNumber(), is("4183 3256 4324 2224"));
+    assertThat(creditCardReportDto.getBalance(), is("UAH1,000,000.00"));
   }
 
 }
