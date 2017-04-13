@@ -16,9 +16,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CreditCardReport implements Serializable {
-  @Secure
   private String cardNumber;
-  @Secure
   private BigDecimal balance;
   private BigDecimal income;
   private BigDecimal outcome;
